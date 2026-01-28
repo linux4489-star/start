@@ -1,70 +1,44 @@
 {
-  "name": "jsonwebtoken",
-  "version": "9.0.3",
-  "description": "JSON Web Token implementation (symmetric and asymmetric)",
-  "main": "index.js",
-  "nyc": {
-    "check-coverage": true,
-    "lines": 95,
-    "statements": 95,
-    "functions": 100,
-    "branches": 95,
-    "exclude": [
-      "./test/**"
-    ],
-    "reporter": [
-      "json",
-      "lcov",
-      "text-summary"
-    ]
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "coverage": "nyc mocha --use_strict",
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/auth0/node-jsonwebtoken"
-  },
-  "keywords": [
-    "jwt"
+  "name": "cookie",
+  "description": "HTTP server cookie parsing and serialization",
+  "version": "0.7.2",
+  "author": "Roman Shtylman <shtylman@gmail.com>",
+  "contributors": [
+    "Douglas Christopher Wilson <doug@somethingdoug.com>"
   ],
-  "author": "auth0",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/auth0/node-jsonwebtoken/issues"
-  },
-  "dependencies": {
-    "jws": "^4.0.1",
-    "lodash.includes": "^4.3.0",
-    "lodash.isboolean": "^3.0.3",
-    "lodash.isinteger": "^4.0.4",
-    "lodash.isnumber": "^3.0.3",
-    "lodash.isplainobject": "^4.0.6",
-    "lodash.isstring": "^4.0.1",
-    "lodash.once": "^4.0.0",
-    "ms": "^2.1.1",
-    "semver": "^7.5.4"
-  },
+  "keywords": [
+    "cookie",
+    "cookies"
+  ],
+  "repository": "jshttp/cookie",
   "devDependencies": {
-    "atob": "^2.1.2",
-    "chai": "^4.1.2",
-    "conventional-changelog": "~1.1.0",
-    "eslint": "^4.19.1",
-    "mocha": "^5.2.0",
-    "nsp": "^2.6.2",
-    "nyc": "^11.9.0",
-    "sinon": "^6.0.0"
-  },
-  "engines": {
-    "npm": ">=6",
-    "node": ">=12"
+    "beautify-benchmark": "0.2.4",
+    "benchmark": "2.1.4",
+    "eslint": "8.53.0",
+    "eslint-plugin-markdown": "3.0.1",
+    "mocha": "10.2.0",
+    "nyc": "15.1.0",
+    "safe-buffer": "5.2.1",
+    "top-sites": "1.1.194"
   },
   "files": [
-    "lib",
-    "decode.js",
-    "sign.js",
-    "verify.js"
-  ]
+    "HISTORY.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">= 0.6"
+  },
+  "scripts": {
+    "bench": "node benchmark/index.js",
+    "lint": "eslint .",
+    "test": "mocha --reporter spec --bail --check-leaks test/",
+    "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+    "test-cov": "nyc --reporter=html --reporter=text npm test",
+    "update-bench": "node scripts/update-benchmark.js"
+  }
 }
